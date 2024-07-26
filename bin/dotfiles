@@ -1,10 +1,20 @@
 #!/bin/bash
 set -e
 
+# 在这里填 github 用户名和仓库名
 GITHUB_USER=your_username
 GITHUB_REPO=your_reponame
 
-DOTFILES_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/.dotfiles"
+# 设置 dotfiles 文件路径为 $XDG_CONFIG_HOME/dotfiles，如果 $XDG_CONFIG_HOME 环境变量为设置，则回退成 $HOME/.config/dotfile
+DOTFILES_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/dotfiles"
+
+# Checking distro
+if [[ -x "$(command -v pacman)" ]]; then
+  echo "Your distro is Arch or Arch-based"
+else
+  echo "Your distro is not Arch nor Arch-based"
+  exit
+fi
 
 if ! [ -x "$(command -v ansible)" ]; then
   sudo pacman -S ansible --noconfirm

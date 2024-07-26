@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
 
-  pre_tasks:
+  tasks:
     - name: Update package cache
       become: true
       community.general.pacman:
