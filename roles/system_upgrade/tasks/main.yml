@@ -1,0 +1,12 @@
+---
+- name: Upgrade system packages
+  become: true
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+
+- name: Upgrade AUR packages
+  kewlfft.aur.aur:
+    use: "{{ ansible_aur_helper }}"
+    upgrade: true
+    aur_only: true

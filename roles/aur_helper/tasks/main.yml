@@ -1,0 +1,7 @@
+---
+- name: Install a AUR helper
+  kewlfft.aur.aur:
+    use: makepkg
+    state: present
+    name:
+      - "{{ ansible_aur_helper }}-bin"

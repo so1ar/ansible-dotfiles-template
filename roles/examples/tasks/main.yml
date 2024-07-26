@@ -1,0 +1,17 @@
+---
+- name: Install some packages using pacman
+  become: true
+  community.general.pacman:
+    update_cache: true
+    name:
+      - htop
+      - bat
+    state: present
+
+- name: Install some packages from AUR
+  kewlfft.aur.aur:
+    use: "{{ ansible_aur_helper }}"
+    name:
+      - neovim-git
+      - htop-git
+    state: present
