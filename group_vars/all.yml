@@ -1,2 +1,4 @@
 default_roles:
   - ping
+
+ansible_aur_helper: paru
