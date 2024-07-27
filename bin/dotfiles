@@ -5,10 +5,10 @@ set -e
 GITHUB_USER=your_username
 GITHUB_REPO=your_reponame
 
-# 设置 dotfiles 文件路径为 $XDG_CONFIG_HOME/dotfiles，如果 $XDG_CONFIG_HOME 环境变量为设置，则回退成 $HOME/.config/dotfile
+# 设置 dotfiles 文件路径为
 DOTFILES_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/dotfiles"
 
-# Checking distro
+# 检查发行版
 if [[ -x "$(command -v pacman)" ]]; then
   echo "Your distro is Arch or Arch-based"
 else
