@@ -5,3 +5,9 @@
     state: present
     name:
       - "{{ ansible_aur_helper }}-bin"
+
+- name: Upgrade AUR packages
+  kewlfft.aur.aur:
+    use: "{{ ansible_aur_helper }}"
+    upgrade: true
+    aur_only: true
